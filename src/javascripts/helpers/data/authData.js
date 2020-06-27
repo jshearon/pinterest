@@ -11,7 +11,7 @@ const toggleLoginData = () => {
     if (user) {
       authDiv.addClass('hide');
       logoutButton.removeClass('hide');
-      boards.printBoards();
+      boards.printUserBoards();
     } else {
       authDiv.removeClass('hide');
       logoutButton.addClass('hide');
