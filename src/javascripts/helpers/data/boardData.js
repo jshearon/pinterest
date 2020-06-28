@@ -17,4 +17,6 @@ const getUserBoards = (userId) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getUserBoards };
+const getBoardById = (boardId) => axios.get(`${baseUrl}/board/${boardId}.json`);
+
+export default { getUserBoards, getBoardById };
