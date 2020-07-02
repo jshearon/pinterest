@@ -1,5 +1,4 @@
 import firebase from 'firebase/app';
-import 'firebase/auth';
 
 import utils from '../../helpers/utils';
 import boardData from '../../helpers/data/boardData';
