@@ -1,11 +1,13 @@
 import firebase from 'firebase/app';
 
 import utils from '../../helpers/utils';
-import boardData from '../../helpers/data/boardData';
+// import boardData from '../../helpers/data/boardData';
 import board from '../board/board';
+import smash from '../../helpers/data/smash';
+import './boards.scss';
 
 const printUserBoards = () => {
-  boardData.getUserBoards(firebase.auth().currentUser.uid)
+  smash.getUserBoardsWithPins()
     .then((allBoards) => {
       const name = firebase.auth().currentUser.displayName;
       const firstName = name.split(' ', 1);
