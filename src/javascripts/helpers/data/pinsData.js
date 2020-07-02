@@ -17,4 +17,18 @@ const getPins = (boardId) => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getPins };
+const getAllPins = () => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/pins.json`)
+    .then((response) => {
+      const pins = [];
+      const pinData = response.data;
+      Object.keys(pinData).forEach((pinId) => {
+        pinData[pinId].id = pinId;
+        pins.push(pinData[pinId]);
+      });
+      resolve(pins);
+    })
+    .catch((err) => reject(err));
+});
+
+export default { getPins, getAllPins };
