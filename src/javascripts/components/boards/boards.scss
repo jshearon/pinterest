@@ -1,0 +1,20 @@
+.masonry-with-columns {
+  columns: 2 10vw;
+  column-gap: .5rem;
+  img {
+    width: 150px;
+    background: #EC985A;
+    color: white;
+    margin: 0 1rem 1rem 0;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  } 
+  @for $i from 0 through 35 { 
+    img:nth-child(#{$i}) {
+      $h: (random(6) + 6) + vw;
+      height: $h;
+      line-height: $h;
+    }
+  }
+}
