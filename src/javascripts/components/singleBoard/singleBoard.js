@@ -5,6 +5,15 @@ import utils from '../../helpers/utils';
 import boardData from '../../helpers/data/boardData';
 import './singleBoard.scss';
 
+const deletePin = (e) => {
+  // eslint-disable-next-line prefer-destructuring
+  const pinId = e.target.closest('.trashPin').dataset.pinId;
+  pinsData.deletePin(pinId)
+    // eslint-disable-next-line no-use-before-define
+    .then(makeSingleBoard(e))
+    .catch((err) => console.error(err));
+};
+
 const makeSingleBoard = (e) => {
   const boardId = e.target.closest('div[id]').id;
   boardData.getBoardById(boardId)
@@ -20,6 +29,7 @@ const makeSingleBoard = (e) => {
           });
           domString += '</div>';
           utils.printToDom('#content', domString);
+          $('.trashPin').on('click', deletePin);
         })
         .catch((err) => console.error(err));
     })
