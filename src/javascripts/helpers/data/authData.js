@@ -14,7 +14,7 @@ const toggleLoginData = () => {
       authDiv.addClass('hide');
       logoutButton.removeClass('hide');
       boards.printUserBoards();
-      $('body').on('click', '.board', singleBoard.makeSingleBoard);
+      $('#content').on('click', '.board', singleBoard.makeSingleBoard);
     } else {
       authDiv.removeClass('hide');
       logoutButton.addClass('hide');
