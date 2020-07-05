@@ -8,8 +8,11 @@ const makeBoard = (board) => {
     domString += `<img src="${image}">`;
   });
   domString += `</div>
+              <div class="w-100 text-right mt-auto trashBoard" id="${board.id}">
+                <i class="fas fa-trash" id="trashBoard"></i>
               </div>
-            </div>`;
+            </div>
+          </div>`;
   return domString;
 };
 
