@@ -6,6 +6,12 @@ import board from '../board/board';
 import smash from '../../helpers/data/smash';
 import './boards.scss';
 
+const deleteBoardAndPins = (e) => {
+  smash.deleteBoard(e)
+  // eslint-disable-next-line no-use-before-define
+    .then(() => { printUserBoards(); });
+};
+
 const printUserBoards = () => {
   smash.getUserBoardsWithPins()
     .then((allBoards) => {
@@ -18,6 +24,7 @@ const printUserBoards = () => {
       });
       domString += '</div>';
       utils.printToDom('#content', domString);
+      $('.trashBoard').on('click', deleteBoardAndPins);
     })
     .catch((err) => console.error('There was a problem loading the boards', err));
 };

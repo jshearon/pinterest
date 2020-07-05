@@ -22,4 +22,19 @@ const getUserBoardsWithPins = () => new Promise((resolve, reject) => {
     .catch((err) => reject(err));
 });
 
-export default { getUserBoardsWithPins };
+const deleteBoard = (e) => new Promise((resolve, reject) => {
+  e.stopPropagation();
+  const boardId = e.target.closest('.trashBoard').id;
+  boardData.deleteBoard(boardId)
+    .then(() => {
+      pinsData.getPins(boardId).then((pins) => {
+        pins.forEach((pin) => {
+          pinsData.deletePin(pin.id);
+        });
+        resolve();
+      });
+    })
+    .catch((err) => reject(err));
+});
+
+export default { getUserBoardsWithPins, deleteBoard };
