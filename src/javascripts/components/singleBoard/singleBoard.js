@@ -20,8 +20,9 @@ const makeSingleBoard = (e) => {
     .then((response) => {
       const boardName = response.data.name;
       let domString = `
-        <h1>${boardName}</h1>
-        <div class="d-flex justify-center">`;
+        <button class="btn btn-secondary" id="view-all-boards"><i class="fas fa-grip-horizontal"></i> View All Boards</button>
+        <h1 class="text-center">${boardName}</h1>
+        <div class="pin-columns">`;
       pinsData.getPins(boardId)
         .then((pins) => {
           pins.forEach((pin) => {

@@ -18,7 +18,7 @@ const printUserBoards = () => {
       const name = firebase.auth().currentUser.displayName;
       const firstName = name.split(' ', 1);
       let domString = `<h1 class="m-5">${firstName}'s Boards</h1>
-        <div class="d-flex justify-center">`;
+        <div class="d-flex justify-content-around flex-wrap">`;
       allBoards.forEach((singleBoard) => {
         domString += board.makeBoard(singleBoard);
       });

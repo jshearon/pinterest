@@ -1,6 +1,25 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
 
 .hide {
   display: none;
+}
+
+.navbar-brand {
+  font-family: 'Galada', cursive;
+}
+
+.navbar-brand h1 {
+  margin: 0;
+}
+
+#user-photo {
+  width: 3vw;
+  height: 3vw;
+  border: .15vw solid #CCC;
+  padding: .1vw;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 50%;
 }
