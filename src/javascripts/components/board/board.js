@@ -4,8 +4,10 @@ const makeBoard = (board) => {
     <div class="card-body" id="${board.id}">
     <h5 class="card-title">${board.name}</h5>
       <div class="masonry-with-columns">`;
-  board.previewPins.forEach((image) => {
-    domString += `<img src="${image}">`;
+  let imageCount = 0;
+  board.previewPins.slice(0, 4).forEach((image) => {
+    domString += `<img src="${image}" id="${imageCount}-${board.id}">`;
+    imageCount += 1;
   });
   domString += `</div>
               <div class="w-100 text-right mt-auto trashBoard" id="${board.id}">

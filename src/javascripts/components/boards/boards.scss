@@ -1,20 +1,28 @@
 .masonry-with-columns {
   columns: 2 10vw;
-  column-gap: .5rem;
+  column-gap: .5vw;
   img {
-    width: 150px;
-    background: #EC985A;
     color: white;
-    margin: 0 1rem 1rem 0;
+    margin: 0 .5vw .5vw 0;
     display: inline-block;
     width: 100%;
     text-align: center;
-  } 
-  @for $i from 0 through 35 { 
-    img:nth-child(#{$i}) {
-      $h: (random(6) + 6) + vw;
-      height: $h;
-      line-height: $h;
-    }
+    object-fit: cover;
   }
+  $row1-1: (random(6) + 6);
+  $row1-2: 20 - $row1-1;
+  $row2-1: (random(6) + 6);
+  $row2-2: 20 - $row2-1;
+  img:nth-child(1) {
+    height: $row1-1 + vw;
+  } 
+  img:nth-child(2) {
+    height: $row1-2 + vw;
+  } 
+  img:nth-child(3) {
+    height: $row2-1 + vw;
+  } 
+  img:nth-child(4) {
+    height: $row2-2 + vw;
+  } 
 }

@@ -7,7 +7,8 @@ import './singleBoard.scss';
 
 const deletePin = (e) => {
   // eslint-disable-next-line prefer-destructuring
-  const pinId = e.target.closest('.trashPin').dataset.pinId;
+  const pinId = e.target.closest('.card').dataset.pinId;
+  console.error(pinId);
   pinsData.deletePin(pinId)
     // eslint-disable-next-line no-use-before-define
     .then(makeSingleBoard(e))
@@ -20,8 +21,9 @@ const makeSingleBoard = (e) => {
     .then((response) => {
       const boardName = response.data.name;
       let domString = `
-        <h1>${boardName}</h1>
-        <div class="d-flex justify-center">`;
+        <button class="btn btn-secondary" id="view-all-boards"><i class="fas fa-grip-horizontal"></i> View All Boards</button>
+        <h1 class="text-center">${boardName}</h1>
+        <div class="pin-columns">`;
       pinsData.getPins(boardId)
         .then((pins) => {
           pins.forEach((pin) => {
