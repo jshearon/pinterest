@@ -7,7 +7,8 @@ import './singleBoard.scss';
 
 const deletePin = (e) => {
   // eslint-disable-next-line prefer-destructuring
-  const pinId = e.target.closest('.trashPin').dataset.pinId;
+  const pinId = e.target.closest('.card').dataset.pinId;
+  console.error(pinId);
   pinsData.deletePin(pinId)
     // eslint-disable-next-line no-use-before-define
     .then(makeSingleBoard(e))

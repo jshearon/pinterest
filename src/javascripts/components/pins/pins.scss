@@ -29,19 +29,49 @@ h1 {
   }
   @for $i from 1 through 30 {
     .pins:nth-child(#{$i}) img {
-      height: (random(60) + 30) + vh;
+      height: (floor(random(40) + 30)) + vh;
     }
   }
 }
 
-.trashPin {
-  background-color: rgba(255,255,255,0.75);
-  border-radius: 50%;
-  position: absolute;
-  top: 1vw;
-  right: 1vw;
-  padding: 10px;
+.pin-card-body {
+  position: relative;
 }
+
+.pin-card-body:hover span {
+  display: inline;
+}
+
+.trashPin {
+  display: none;
+  font-size: 1.5vw; 
+  position: absolute;
+  bottom: 2vw;
+  right: 1vw;
+  cursor: pointer;
+  color: white;
+  .fa-trash {
+    color: black;
+  }
+  .fa-circle {
+    opacity: 0.7;
+  }
+}
+
+.pinLink {
+  display: none;
+  background-color: rgba(255,255,255,0.7);
+  position: absolute;
+  bottom: 2vw;
+  left: 1vw;
+  cursor: pointer;
+  line-height: 1.5vw;
+}
+
+.pinLink a{
+  color: black;
+}
+
 
 .pins .card-body {
   padding: 0;
