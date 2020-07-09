@@ -5,6 +5,7 @@ import utils from '../../helpers/utils';
 import board from '../board/board';
 import smash from '../../helpers/data/smash';
 import './boards.scss';
+// eslint-disable-next-line import/no-cycle
 import newBoard from '../newBoard/newBoard';
 
 const deleteBoardAndPins = (e) => {
