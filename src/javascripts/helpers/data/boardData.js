@@ -36,6 +36,12 @@ const getBoardById = (boardId) => axios.get(`${baseUrl}/boards/${boardId}.json`)
 
 const deleteBoard = (boardId) => axios.delete(`${baseUrl}/boards/${boardId}.json`);
 
+const addBoard = (boardObj) => axios.post(`${baseUrl}/boards.json`, boardObj);
+
 export default {
-  getUserBoards, getBoardById, getAllBoards, deleteBoard,
+  getUserBoards,
+  getBoardById,
+  getAllBoards,
+  deleteBoard,
+  addBoard,
 };
