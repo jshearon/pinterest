@@ -1,5 +1,5 @@
+import firebase from 'firebase/app';
 import pinsData from '../../helpers/data/pinsData';
-// import board from '../board/board';
 import pinData from '../pins/pins';
 import utils from '../../helpers/utils';
 import boardData from '../../helpers/data/boardData';
@@ -48,13 +48,17 @@ const makeSingleBoard = (e) => {
         <div class="pin-columns">`;
       pinsData.getPins(boardId)
         .then((pins) => {
-          pins.forEach((pin) => {
-            domString += pinData.makePins(pin);
-          });
-          domString += '</div>';
-          utils.printToDom('#content', domString);
-          document.querySelector('#add-pin').addEventListener('submit', newPin.addNewPin);
-          $('.trashPin').on('click', deletePin);
+          boardData.getUserBoards(firebase.auth().currentUser.uid)
+            .then((userBoards) => {
+              pins.forEach((pin) => {
+                domString += pinData.makePins(pin, userBoards);
+              });
+              domString += '</div>';
+              utils.printToDom('#content', domString);
+              document.querySelector('#add-pin').addEventListener('submit', newPin.addNewPin);
+              $('.trashPin').on('click', deletePin);
+            })
+            .catch((err) => console.error(err));
         })
         .catch((err) => console.error(err));
     })

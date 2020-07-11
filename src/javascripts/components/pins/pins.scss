@@ -58,6 +58,22 @@ h1 {
   }
 }
 
+.editPin {
+  display: none;
+  font-size: 1.5vw; 
+  position: absolute;
+  bottom: 2vw;
+  right: 5vw;
+  cursor: pointer;
+  color: white;
+  .fa-pen {
+    color: black;
+  }
+  .fa-circle {
+    opacity: 0.7;
+  }
+}
+
 .pinLink {
   display: none;
   background-color: rgba(255,255,255,0.7);
