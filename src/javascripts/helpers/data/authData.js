@@ -12,6 +12,7 @@ const userPhoto = $('#user-photo');
 const toggleLoginData = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
+      userPhoto.removeClass('hide');
       userPhoto.attr('src', firebase.auth().currentUser.photoURL);
       authDiv.addClass('hide');
       logoutButton.removeClass('hide');
@@ -19,6 +20,7 @@ const toggleLoginData = () => {
       $('#content').on('click', '.board', singleBoard.makeSingleBoard);
       $('#content').on('click', '#view-all-boards', boards.printUserBoards);
     } else {
+      userPhoto.addClass('hide');
       authDiv.removeClass('hide');
       logoutButton.addClass('hide');
       home.printHome();
