@@ -6,6 +6,8 @@ import boardData from '../../helpers/data/boardData';
 import './singleBoard.scss';
 // eslint-disable-next-line import/no-cycle
 import newPin from '../newPin/newPin';
+// eslint-disable-next-line import/no-cycle
+import editPin from '../editPin/editPin';
 
 const deletePin = (e) => {
   // eslint-disable-next-line prefer-destructuring
@@ -56,6 +58,7 @@ const makeSingleBoard = (e) => {
               domString += '</div>';
               utils.printToDom('#content', domString);
               document.querySelector('#add-pin').addEventListener('submit', newPin.addNewPin);
+              $('.editAPin').on('submit', editPin.editPin);
               $('.trashPin').on('click', deletePin);
             })
             .catch((err) => console.error(err));

@@ -26,7 +26,7 @@ const makePins = (pin, userBoards) => {
   userBoards.forEach((board) => {
     domString += `
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="selected-board" value="${board.id}" ${board.id === pin.boardId ? 'checked' : ''}>
+                  <input class="form-check-input" type="radio" name="selectedBoard" value="${board.id}" ${board.id === pin.boardId ? 'checked' : ''}>
                   <label class="form-check-label" for="selected-board">
                     ${board.name}
                   </label>
@@ -35,7 +35,7 @@ const makePins = (pin, userBoards) => {
   domString += `
             <input type="hidden" name="pinId" value="${pin.id}">
             <br>
-            <button type="submit" class="btn btn-primary m-0">Add New Pin</button>
+            <button type="submit" class="btn btn-primary m-0">Update Pin</button>
         </form>
       <span class="fa-stack fa-lg trashPin">
         <i class="fas fa-circle fa-stack-2x"></i>
